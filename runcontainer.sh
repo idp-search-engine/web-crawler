@@ -11,7 +11,7 @@ then
         cmd="celery -A app.worker.tasks worker -E --loglevel=INFO"
     elif [ "$CONTAINER_TYPE" = "flower" ]
     then
-        cmd="celery -A app.worker.tasks flower --loglevel=INFO"
+        cmd="celery -A app.worker.tasks flower --url_prefix=flower --loglevel=INFO"
     else
         echo "invalid container type"
         exit 1
